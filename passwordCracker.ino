@@ -12,9 +12,9 @@ int relay1 = 4;
 int relay2 = 2;
 int relay3 = 3;
 int photo = A0;  //define a pin for Photo resistor
-int start = 1000;
-int finish = 0;
-int length = 999;
+int start_count = 1000;
+int finish_count = 9999;
+int count_length = 8999;
 
 // the setup routine runs once when you press reset:
 void setup() {                
@@ -65,14 +65,14 @@ void enterConfig() {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  for (int k = 270; k <= (length - k); k++) {
-  finish = start - k;
-  Serial.println(finish-1);
+  for (int k = start_count; k <= finish_count; k++) {
+  Serial.println(k);
   enterConfig();
   pressEnter();
   //holdDown(6330);
-  for (int i=start; i >= finish; i--){
-     pressDOWN();
+  for (int i=0; i <= k-start_count; i++){
+     //Serial.println(i);
+     pressUP();
      delay(50);
   }
    delay(100);
