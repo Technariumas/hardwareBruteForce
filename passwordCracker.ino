@@ -1,10 +1,8 @@
-/*
-  Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
- 
-  This example code is in the public domain.
- */
- 
+//UP and DOWN, hold for 3s
+//UP or DOWN x times
+//ENTER
+
+
 // Pin 13 has an LED connected on most Arduino boards.
 // give it a name:
 int ledIn = 5;
@@ -69,9 +67,7 @@ void loop() {
   Serial.println(k);
   enterConfig();
   pressEnter();
-  //holdDown(6330);
   for (int i=0; i <= k-start_count; i++){
-     //Serial.println(i);
      pressUP();
      delay(50);
   }
@@ -79,8 +75,8 @@ void loop() {
    pressEnter();   
   
   int phot = analogRead(photo);
-  Serial.println("Photoresistor: ");
-  Serial.println(phot);
+  Serial.println("Photoresistor value: ");
+  Serial.println(phot+1);
   if (phot > 300) {
     Serial.println("ON!");
     break;
@@ -90,6 +86,4 @@ void loop() {
 while(1);
 }
 
-//UP and DOWN, hold for 3s
-//UP or DOWN x times
-//ENTER
+
